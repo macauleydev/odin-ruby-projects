@@ -5,14 +5,17 @@ def caesar_cipher(string, shift)
   code_z = 122
 
   ciphertext = ''
+
   string.each_codepoint do |code|
-    if (code_A..code_Z).include?(code)
-      ciphertext += shift_and_wrap(code, shift, code_A, 26).chr
-    elsif (code_a..code_z).include?(code)
-      ciphertext += shift_and_wrap(code, shift, code_a, 26).chr
-    else
-      ciphertext += code.chr
-    end
+    ciphertext +=
+      case code
+        when code_A..code_Z
+          shift_and_wrap(code, shift, code_A, 26).chr
+        when code_a..code_z
+          shift_and_wrap(code, shift, code_a, 26).chr
+        else
+          code.chr
+      end
   end
 
   ciphertext
