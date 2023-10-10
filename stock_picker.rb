@@ -14,3 +14,8 @@ end
 # Test
 sample_daily_prices = [17,3,6,9,15,8,6,1,10]
 p stock_picker(sample_daily_prices)
+
+# Compare with solution from https://github.com/Kropyls/Stock-Picker :
+# def stock_picker(prices)
+#   results = prices.each_with_index.to_a.combination(2).max_by{|buy,sell| sell[0]-buy[0]}.map{|price, i| i}
+# end
