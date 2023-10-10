@@ -22,11 +22,10 @@ def caesar_cipher(string, shift)
 end
 
 def shift_and_wrap(number, shift, offset = 0, wrap_interval = 26)
-  offset + ((-offset + number + shift) % wrap_interval)
+  offset + ((number + shift - offset) % wrap_interval)
 end
 
 # Test:
 plaintext = "What a string!"
 ciphertext = caesar_cipher(plaintext, 5)
-p ciphertext
-# => "Bmfy f xywnsl!"
+p ciphertext # "Bmfy f xywnsl!"
